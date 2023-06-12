@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import com.model.*;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Validation")
 public class Validation extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    DbConnection connection = new DbConnection();
        
 
     public Validation() {
@@ -22,6 +24,7 @@ public class Validation extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	connection.getConnection();
         this.getServletContext().getRequestDispatcher("/WEB-INF/view/Details.jsp").forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
